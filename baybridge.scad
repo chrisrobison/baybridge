@@ -84,8 +84,8 @@ module cables() {
             translate([40,x-220,100]) cylinder(h=200,d=5);
          }
          for (x=[-180:20:1230]) {
-            crossbeams(1,x);
-            crossbeams(46,x);
+            crossbeams(7,x);
+            crossbeams(41,x);
          }
       }
       translate([-5,350,610]) rotate([0,90,0]) cylinder(h=100,r=500,$fn=128);
@@ -148,11 +148,11 @@ module road() {
 
 module bridge() {
    translate([0,0,40]) union() {
-      translate([50,2900,0]) rotate([0,0,180]) span();
+      translate([50,2930,0]) rotate([0,0,180]) span();
    //   translate([50,980,-1]) rotate([0,0,180]) span();
       span();
       translate([0,200,0]) road();
-      translate([0,1450,0]) anchor();
+      translate([0,1465,0]) anchor(width=35);
       translate([0,0,0]) anchor(width=-30);
       translate([0,2900,0]) anchor();
    //   translate([0,1450,0]) span();
