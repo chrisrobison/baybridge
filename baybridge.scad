@@ -3,9 +3,9 @@ module support() {
 }
 
 
-module leg(lean=2,dir=1) {
-   translate([-3+dir,-4,-15]) rotate([0,lean,0]) linear_extrude(267,scale=.8) square([6,12],center=false);
-   translate([-6+dir,-2,-15]) rotate([0,lean*1.1,0]) linear_extrude(267,scale=[.5,1]) square([10,6],center=false);
+module leg(lean=1.5,dir=1) {
+   translate([-3+dir,-4,-15]) rotate([0,lean,0]) linear_extrude(277,scale=.8) square([6,12],center=false);
+   translate([-6+dir,-2,-15]) rotate([0,lean*1.1,0]) linear_extrude(277,scale=[.5,1]) square([10,6],center=false);
 }
 
 module tower() {
@@ -20,16 +20,16 @@ module tower() {
       translate([22,1,-3]) cube([50,5,5],center=true);
       
       difference() {
-         translate([22,0.5,250]) cube([41,10,22],center=true); 
-         translate([10,0,254]) cube([4,15,5],center=true);
-         translate([17,0,254]) cube([4,15,5],center=true);
-         translate([28,0,254]) cube([4,15,5],center=true);
-         translate([35,0,254]) cube([4,15,5],center=true);
+         translate([22,0.5,260]) cube([38,8,22],center=true); 
+         translate([10,0,264]) cube([4,15,5],center=true);
+         translate([17,0,264]) cube([4,15,5],center=true);
+         translate([28,0,264]) cube([4,15,5],center=true);
+         translate([35,0,264]) cube([4,15,5],center=true);
       }
    }
-   translate([22.5,0,262]) cylinder(h=8,r=4,center=true);
-   color("OrangeRed") translate([22.5,0,270]) sphere(r=4,center=true);
-   color("OrangeRed") translate([22.5,0,268]) cylinder(h=4,r=4,center=true);
+   translate([22.5,0,272]) cylinder(h=8,r=4,center=true);
+   color("OrangeRed") translate([22.5,0,280]) sphere(r=4,center=true);
+   color("OrangeRed") translate([22.5,0,278]) cylinder(h=4,r=4,center=true);
    
    color("DarkGrey") translate([-5,0,-15]) rotate([0,0,22.5]) cylinder(h=5,r=18,center=true,$fn=8);
    color("DarkGrey") translate([50,0,-15]) rotate([0,0,22]) cylinder(h=5,r=18,center=true,$fn=8);
@@ -46,7 +46,7 @@ module oldcable() {
 }
 
 module cable() {
-    color("DarkGrey") translate([0,0,610]) rotate([-45,0,0]) rotate([0,90,0]) rotate_extrude(angle=90,$fn=128) translate([500,0,0]) circle(4);
+    color("DarkGrey") translate([0,0,610]) rotate([-44.5,0,0]) rotate([0,90,0]) rotate_extrude(angle=89,$fn=128) translate([500,0,0]) circle(4);
 }
 
 module cablePair() {
@@ -80,11 +80,11 @@ module cables() {
    color("Silver") difference() {
       union() {
          for (x=[-180:20:1230]) {
-            translate([3,x-220,101]) cylinder(h=200,d=5);
-            translate([40,x-220,100]) cylinder(h=200,d=5);
+            translate([2.5,x-220,101]) cylinder(h=200,d=5);
+            translate([41,x-220,100]) cylinder(h=200,d=5);
          }
          for (x=[-180:20:1230]) {
-            crossbeams(7,x);
+            crossbeams(1,x);
             crossbeams(41,x);
          }
       }
@@ -133,8 +133,8 @@ module anchor(width=0) {
 
 module roadbed() {
    difference() {
-      translate([0,300,95]) scale([1.1,2,.75]) roadway();
-      color("DimGrey") translate([5,300,100]) scale([.8,2,.75]) roadway();
+      translate([0,300,95]) scale([1.1,2.1,.75]) roadway();
+      color("DimGrey") translate([5,300,100]) scale([.8,2.1,.75]) roadway();
    }
    
 }
@@ -148,13 +148,13 @@ module road() {
 
 module bridge() {
    translate([0,0,40]) union() {
-      translate([50,2930,0]) rotate([0,0,180]) span();
+      translate([45,2930,0]) rotate([0,0,180]) span();
    //   translate([50,980,-1]) rotate([0,0,180]) span();
       span();
       translate([0,200,0]) road();
       translate([0,1465,0]) anchor(width=35);
       translate([0,0,0]) anchor(width=-30);
-      translate([0,2900,0]) anchor();
+      translate([0,2945,0]) anchor(width=-20);
    //   translate([0,1450,0]) span();
    }
 }
